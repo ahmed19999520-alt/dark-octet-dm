@@ -1,0 +1,44 @@
+dark-octet-dm/
+├── .github/workflows/ci.yml
+├── docker/
+│   ├── Dockerfile
+│   └── docker-compose.yml
+├── src/dark_octet/
+│   ├── __init__.py
+│   ├── constants.py
+│   ├── homotopy/
+│   │   ├── __init__.py
+│   │   ├── long_exact_sequence.py
+│   │   └── winding_number.py
+│   ├── spectrum/
+│   │   ├── __init__.py
+│   │   ├── gmo_formula.py
+│   │   └── dark_octet.py
+│   ├── boltzmann/
+│   │   ├── __init__.py
+│   │   ├── cross_sections.py
+│   │   ├── decay_rates.py
+│   │   └── solver.py
+│   ├── sommerfeld/
+│   │   ├── __init__.py
+│   │   ├── schrodinger.py
+│   │   └── enhancement.py
+│   ├── relic/
+│   │   ├── __init__.py
+│   │   └── abundance.py
+│   └── signatures/
+│       ├── __init__.py
+│       ├── collider.py
+│       └── gravitational_waves.py
+├── notebooks/
+│   ├── AppendixA_Homotopy.ipynb
+│   ├── AppendixB_Boltzmann.ipynb
+│   └── AppendixC_Sommerfeld.ipynb
+├── tests/
+│   ├── test_gmo.py
+│   ├── test_boltzmann.py
+│   └── test_sommerfeld.py
+├── data/observational_constraints.json
+├── pyproject.toml
+├── requirements.txt
+└── README.md

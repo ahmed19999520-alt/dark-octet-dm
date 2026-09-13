@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "dark-octet-dm"
+version = "1.0.0"
+description = "Topological Dark Matter from SU(3) Symmetry Breaking"
+authors = [{ name = "Ahmed Ali", email = "ahmed19999520@gmail.com" }]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+readme = "README.md"
+keywords = [
+    "dark matter",
+    "homotopy",
+    "Boltzmann equations",
+    "Sommerfeld enhancement",
+    "EQST-GP",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Intended Audience :: Science/Research",
+]
+dependencies = [
+    "numpy>=1.26.0",
+    "scipy>=1.11.0",
+    "sympy>=1.12",
+    "matplotlib>=3.8.0",
+    "pandas>=2.1.0",
+    "torch>=2.1.0",
+    "tqdm>=4.66.0",
+    "rich>=13.7.0",
+    "pydantic>=2.5.0",
+    "numba>=0.58.0",
+    "bokeh>=3.3.0",
+    "plotly>=5.18.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.7.0",
+    "jupyterlab>=4.0.0",
+]
+
+[project.scripts]
+dark-octet = "dark_octet.cli:main"
+
+[tool.black]
+line-length = 88
+target-version = ["py310", "py311"]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "W", "I"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"

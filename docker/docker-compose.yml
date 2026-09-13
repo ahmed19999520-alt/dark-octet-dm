@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  dark-octet:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: dark-octet-dm:latest
+    container_name: dark_octet_lab
+    ports:
+      - "8888:8888"
+    volumes:
+      - ../notebooks:/workspace/notebooks
+      - ../data:/workspace/data
+      - ../src:/workspace/src
+      - notebook_cache:/root/.cache/jupyter
+    environment:
+      - PYTHONPATH=/workspace/src
+      - OMP_NUM_THREADS=4
+      - MKL_NUM_THREADS=4
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8888/api"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  tests:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: dark_octet_tests
+    volumes:
+      - ../src:/workspace/src
+      - ../tests:/workspace/tests
+    environment:
+      - PYTHONPATH=/workspace/src
+    command: pytest tests/ -v --tb=short
+    profiles: ["testing"]
+
+volumes:
+  notebook_cache:

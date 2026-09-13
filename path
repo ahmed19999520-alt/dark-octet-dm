@@ -1,0 +1,33 @@
+if __name__ == "__main__":
+    import os
+ 
+    files = {
+        "src/dark_octet/boltzmann/__init__.py":    BOLTZMANN_INIT,
+        "src/dark_octet/sommerfeld/__init__.py":   SOMMERFELD_INIT,
+        "src/dark_octet/relic/__init__.py":        RELIC_INIT,
+        "src/dark_octet/data/__init__.py":         DATA_INIT,
+        "src/dark_octet/utils/__init__.py":        UTILS_INIT,
+        "src/dark_octet/utils/plotting.py":        UTILS_PLOTTING,
+        "src/dark_octet/utils/numerics.py":        UTILS_NUMERICS,
+        "src/dark_octet/utils/units.py":           UTILS_UNITS,
+        "src/dark_octet/analysis/__init__.py":     ANALYSIS_INIT,
+        "src/dark_octet/analysis/chi2_comparison.py": CHI2_COMPARISON,
+        "src/dark_octet/analysis/parameter_scan.py":  PARAMETER_SCAN,
+        "src/dark_octet/analysis/predictions_table.py": PREDICTIONS_TABLE,
+        "tests/test_analysis.py":                  TEST_ANALYSIS,
+        "tests/test_utils.py":                     TEST_UTILS,
+        "setup.py":                                SETUP_PY,
+        "notebooks/AppendixA_Homotopy.ipynb":     APPENDIX_A_NOTEBOOK,
+        "notebooks/AppendixB_Boltzmann.ipynb":    APPENDIX_B_NOTEBOOK,
+        "notebooks/AppendixC_Sommerfeld.ipynb":   APPENDIX_C_NOTEBOOK,
+    }
+ 
+    for path, content in files.items():
+        print(f"\n{'='*70}")
+        print(f"# FILE: {path}")
+        print(f"{'='*70}")
+        print(content.strip())
+ 
+    print("\n\nAll files listed above. Create them with:")
+    print("  python dark_octet_remaining.py > all_files.txt")
+    print("  or copy each block manually.")

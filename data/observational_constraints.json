@@ -1,0 +1,78 @@
+{
+  "relic_abundance": {
+    "omega_dm_h2": 0.1200,
+    "sigma_omega_dm_h2": 0.0012,
+    "reference": "Planck 2018, arXiv:1807.06209"
+  },
+  "self_interaction_limits": [
+    {
+      "system": "ultra_faint_dwarfs",
+      "v_halo_kms": 5.0,
+      "sigma_T_per_m_upper": 1.0,
+      "units": "cm2/g",
+      "reference": "Tulin & Yu 2018, arXiv:1705.02358"
+    },
+    {
+      "system": "dwarf_spheroidals",
+      "v_halo_kms": 10.0,
+      "sigma_T_per_m_upper": 1.0,
+      "units": "cm2/g",
+      "reference": "Tulin & Yu 2018, arXiv:1705.02358"
+    },
+    {
+      "system": "galaxy_groups",
+      "v_halo_kms": 300.0,
+      "sigma_T_per_m_upper": 0.1,
+      "units": "cm2/g",
+      "reference": "Harvey et al. 2015, arXiv:1503.07675"
+    },
+    {
+      "system": "bullet_cluster",
+      "v_halo_kms": 1000.0,
+      "sigma_T_per_m_upper": 0.47,
+      "units": "cm2/g",
+      "reference": "Randall et al. 2008, arXiv:0704.0261"
+    }
+  ],
+  "direct_detection": {
+    "lz_2024": {
+      "sigma_SI_upper_cm2": 9.2e-48,
+      "m_dm_gev": 36.0,
+      "reference": "LZ 2023, arXiv:2207.03764"
+    },
+    "darwin_projected": {
+      "sigma_SI_target_cm2": 3.0e-49,
+      "m_dm_gev": 100.0,
+      "reference": "DARWIN 2016, arXiv:1606.07001"
+    }
+  },
+  "collider": {
+    "fcc_ee": {
+      "sqrt_s_gev": 365.0,
+      "luminosity_ab_inv": 1.5,
+      "reference": "FCC CDR 2019, doi:10.1140/epjst/e2019-900045-4"
+    },
+    "fcc_hh": {
+      "sqrt_s_tev": 100.0,
+      "luminosity_ab_inv": 30.0,
+      "reference": "FCC CDR 2019, doi:10.1140/epjst/e2019-900087-0"
+    }
+  },
+  "gravitational_waves": {
+    "lisa": {
+      "f_band_hz": [1e-4, 1e-1],
+      "snr_threshold": 5.0,
+      "mission_years": 4.0,
+      "reference": "LISA 2017, arXiv:1702.00786"
+    }
+  },
+  "dark_acoustic_oscillations": {
+    "ska": {
+      "r_dao_mpc": 2.3,
+      "sigma_r_dao_mpc": 0.4,
+      "snr_projected": 7.2,
+      "observation_hours": 1000,
+      "reference": "SKA 2018, arXiv:1811.02743"
+    }
+  }
+}
