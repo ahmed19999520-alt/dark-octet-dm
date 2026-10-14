@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name            = "dark-octet-dm"
+version         = "2.0.0"
+description     = "Topological Dark Matter from SU(3)_dark — EQST-GP Series Paper II"
+readme          = "README.md"
+requires-python = ">=3.10"
+license         = { text = "MIT" }
+authors         = [
+    { name = "Ahmed Ali", email = "ahmed.ali.mpi@hotmail.com" },
+]
+keywords = [
+    "dark matter", "SU(3)", "homotopy", "Boltzmann", "Sommerfeld",
+    "gravitational waves", "SIDM", "Gell-Mann-Okubo", "LISA", "FCC",
+]
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "sympy>=1.12",
+    "matplotlib>=3.8",
+    "pandas>=2.1",
+    "rich>=13.7",
+    "numba>=0.58",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "pytest-xdist>=3.3",
+]
+notebooks = [
+    "jupyter>=1.0",
+    "plotly>=5.18",
+    "ipywidgets>=8.1",
+]
+torch = [
+    "torch>=2.1",
+]
+all = [
+    "dark-octet-dm[dev,notebooks,torch]",
+]
+
+[project.scripts]
+dark-octet = "dark_octet.cli:main"
+
+[project.urls]
+Repository = "https://github.com/ahmed19999520-alt/EQST-GP-Theory"
+Paper-I    = "https://doi.org/10.2139/SSRN.5577470"
+Paper-II   = "https://doi.org/10.17352/amp.000172"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths    = ["tests"]
+addopts      = "-v --tb=short"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.coverage.run]
+source = ["src/dark_octet"]
+omit   = ["*/tests/*", "*/__init__.py"]

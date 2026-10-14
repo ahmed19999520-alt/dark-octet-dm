@@ -1,0 +1,50 @@
+version: "3.9"
+
+services:
+  jupyter:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: dark_octet_jupyter
+    ports:
+      - "8888:8888"
+    volumes:
+      - ../src:/workspace/src
+      - ../notebooks:/workspace/notebooks
+      - ../data:/workspace/data
+      - ../results:/workspace/results
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    command: >
+      jupyter lab --ip=0.0.0.0 --port=8888
+      --no-browser --allow-root
+      --notebook-dir=/workspace/notebooks
+      --ServerApp.token=''
+
+  tests:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: dark_octet_tests
+    volumes:
+      - ../src:/workspace/src
+      - ../tests:/workspace/tests
+      - ../data:/workspace/data
+    command: >
+      pytest tests/ -v --tb=short
+      --cov=src/dark_octet
+      --cov-report=term-missing
+      --cov-report=html:results/coverage
+    profiles:
+      - testing
+
+  spectrum:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: dark_octet_spectrum
+    volumes:
+      - ../results:/workspace/results
+    command: dark-octet all --output-dir /workspace/results
+    profiles:
+      - compute
