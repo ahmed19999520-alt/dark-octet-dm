@@ -1,6 +1,6 @@
 Computational library supporting:
 
-# Dark Octet Dark Matter —  Series Paper V.II Updated
+# Dark Octet Dark Matter —  v2.0 Updated
 
 **"Topological Integer-Winding Dark Matter with a Dark Higgs Triplet: Stability from π 2 (SU(3)/SO(3)) = Z"**
 
